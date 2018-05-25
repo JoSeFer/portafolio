@@ -14,6 +14,7 @@ cargando_productos = true;
 
       this.http.get('https://paginawebtpa.firebaseio.com/productos_idx.json').subscribe( res => {
         console.log(res.json());
+        this.productos = res.json();
         this.cargando_productos = false;
       });
   }
