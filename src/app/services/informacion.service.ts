@@ -5,7 +5,7 @@ import { Http } from '@angular/http';
 export class InformacionService {
 
 info: any = {};
-cargada = false;
+cargada = true;
 cargada_sobre_nosotros = false;
 equipo: any[] = [];
 
@@ -29,7 +29,7 @@ equipo: any[] = [];
     this.http.get('https://paginawebtpa.firebaseio.com/equipo.json')
       .subscribe(data => {
         // console.log(data.json());
-        this.cargada = true;
+        this.cargada = false;
         this.equipo = data.json();
       });
 
