@@ -10,6 +10,10 @@ cargando = true;
     this.cargar_productos();
    }
 
+  public cargar_producto(cod: string) {
+    return this.http.get(`https://paginawebtpa.firebaseio.com/productos/${cod}.json`);
+  }
+
   public cargar_productos() {
     this.cargando = true;
       this.http.get('https://paginawebtpa.firebaseio.com/productos_idx.json').subscribe( res => {
