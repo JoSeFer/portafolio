@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { InformacionService } from '../../services/informacion.service';
+import { ActivatedRoute } from '@angular/router';
+import { ProductosService } from '../../services/productos.service';
+
+
 
 
 @Component({
@@ -8,8 +11,14 @@ import { InformacionService } from '../../services/informacion.service';
   styles: []
 })
 export class SearchComponent implements OnInit {
+termino: string = undefined;
+  constructor(  private route: ActivatedRoute, private _ps: ProductosService) {
 
-  constructor( private _is: InformacionService) {
+    route.params.subscribe(parametros => {
+      this.termino = parametros['termino'];
+      _ps.buscar_producto(this.termino);
+      console.log(this.termino);
+    });
 
    }
 
